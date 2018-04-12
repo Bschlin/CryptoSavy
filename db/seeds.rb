@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# User.create(first_name: "Blake", last_name: "Schlin", email: "blake@email.com", phone_number: "8476625342", password: "password")
+Favorite.create(user_id: 1, coin_name: "Bitcoin", coin_api_id: "BTC", notes: "Bitcoin is the first decentralized cryptocurrency")
