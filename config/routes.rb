@@ -5,5 +5,11 @@ Rails.application.routes.draw do
   namespace :v1 do
 
     post "/users" => "users#create"
+
+    get "/favorites" => "favorites#index"
+    post "/favorites" => "favorites#create"
+
+    get "/coins" => "coins#index"
+    get "/coins/:id" => "coins#show"
   end 
 end

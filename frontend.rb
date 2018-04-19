@@ -46,3 +46,40 @@ if input_option == "signup"
 
 end
 
+system "clear"
+puts "Choose an option"
+puts "[1] Show all Favorites"
+puts "[1.1] Create a NEW Favorite"
+puts "[2] Show market data for all coins(coins index action)"
+puts "[2.1] Show market data for ONE coin(coins show action)"
+
+
+input_option = gets.chomp
+if input_option == "1"
+  response = Unirest.get("http://localhost:3000/v1/favorites")
+  favorites = response.body
+  puts JSON.pretty_generate(favorites)
+elsif input_option == "1.1"
+  params = {}
+  print "Enter a user ID: "
+  params[:user_id] = gets.chomp
+  print "Enter a coin name: "
+  params[:coin_name] = gets.chomp
+  print "Enter coin API ID: "
+  params[:coin_api_id] = gets.chomp
+  print "Enter some notes: "
+  params[:notes] = gets.chomp
+  response = Unirest.post("http://localhost:3000/v1/favorites", parameters: params)
+  favorites = response.body
+elsif input_option == "2.1"
+  response = Unirest.get("http://localhost:3000/v1/coins/BTC")
+  p response.body["RAW"]["BTC"]["USD"]["PRICE"]
+end
+
+# show all coins
+# response = Unirest.get("http://localhost:3000/v1/coins")
+# p response.body
+
+# show one coin
+# response = Unirest.get("http://localhost:3000/v1/coins/BTC")
+# p response.body
