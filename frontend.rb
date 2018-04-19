@@ -48,8 +48,8 @@ end
 
 system "clear"
 puts "Choose an option"
-puts "[1] Show all Favorites"
-puts "[1.1] Create a NEW Favorite"
+puts "[1] Show all Favorites(favorites index action)"
+puts "[1.1] Create a NEW Favorite(favorites create action)"
 puts "[2] Show market data for all coins(coins index action)"
 puts "[2.1] Show market data for ONE coin(coins show action)"
 
@@ -71,9 +71,16 @@ elsif input_option == "1.1"
   params[:notes] = gets.chomp
   response = Unirest.post("http://localhost:3000/v1/favorites", parameters: params)
   favorites = response.body
+elsif input_option == "2"
+  response = Unirest.get("http://localhost:3000/v1/coins")
+  coins = response.body
+  puts JSON.pretty_generate(coins)
 elsif input_option == "2.1"
-  response = Unirest.get("http://localhost:3000/v1/coins/BTC")
-  p response.body["RAW"]["BTC"]["USD"]["PRICE"]
+  params = {}
+  print "Enter a coin ticker symbol: "
+  input_name = gets.chomp
+  response = Unirest.get("http://localhost:3000/v1/coins/#{input_name}")
+  p response.body
 end
 
 # show all coins

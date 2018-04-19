@@ -1,7 +1,7 @@
 class V1::CoinsController < ApplicationController
   def index
     # Use Unirest with some API to get a list of coins (no user input required)
-    response = Unirest.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD")
+    response = Unirest.get("https://www.cryptocompare.com/api/data/coinlist/")
     render json: response.body
   end
 
