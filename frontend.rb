@@ -50,8 +50,8 @@ system "clear"
 puts "Choose an option"
 puts "[1] Show all Favorites(favorites index action)"
 puts "[1.1] Create a NEW Favorite(favorites create action)"
-puts "[2] Show market data for all coins(coins index action)"
-puts "[2.1] Show market data for ONE coin(coins show action)"
+puts "[2] Coins Index"
+puts "[2.1] Search Coins by Ticker Symbol"
 
 
 input_option = gets.chomp
