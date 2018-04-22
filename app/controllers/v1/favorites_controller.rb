@@ -18,4 +18,11 @@ def create
       render json: {errors: favorite.errors.full_messages}, status: 422
   end
 end
+
+def destroy
+  favorite_id = params["id"]
+  favorite = Favorite.find_by(id: favorite_id)
+  favorite.destroy
+  render json: {message: "Product successfully destroyed!"} 
+end 
 end

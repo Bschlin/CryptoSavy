@@ -50,6 +50,7 @@ system "clear"
 puts "Choose an option"
 puts "[1] Show all Favorites(favorites index action)"
 puts "[1.1] Create a NEW Favorite(favorites create action)"
+puts "[1.2] Delete a favorite(favorites destroy action"
 puts "[2] Coins Index"
 puts "[2.1] Search Coins by Ticker Symbol"
 
@@ -61,7 +62,7 @@ if input_option == "1"
   puts JSON.pretty_generate(favorites)
 elsif input_option == "1.1"
   params = {}
-  print "Enter a user ID: "
+  print "Enter a coin ID: "
   params[:user_id] = gets.chomp
   print "Enter a coin name: "
   params[:coin_name] = gets.chomp
@@ -71,6 +72,12 @@ elsif input_option == "1.1"
   params[:notes] = gets.chomp
   response = Unirest.post("http://localhost:3000/v1/favorites", parameters: params)
   favorites = response.body
+elsif input_option == "1.2"
+  print "Enter a favorites id: "
+  favorite_id = gets.chomp
+  response = Unirest.delete("http://localhost:3000/v1/favorites/#{favorite_id}")
+  body = response.body
+  puts JSON.pretty_generate(body)
 elsif input_option == "2"
   response = Unirest.get("http://localhost:3000/v1/coins")
   coins = response.body
