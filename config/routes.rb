@@ -12,5 +12,8 @@ Rails.application.routes.draw do
 
     get "/coins" => "coins#index"
     get "/coins/:id" => "coins#show"
+
+    # get "/wallets" => "wallets#index"
+    get "/wallets/:id" => "wallets#show"
   end 
 end

@@ -53,6 +53,10 @@ puts "[1.1] Create a NEW Favorite(favorites create action)"
 puts "[1.2] Delete a favorite(favorites destroy action"
 puts "[2] Coins Index"
 puts "[2.1] Search Coins by Ticker Symbol"
+puts "[3] show multiple Wallet address balances"
+puts "[3.1] show Wallet address balance"
+
+
 
 
 input_option = gets.chomp
@@ -87,6 +91,16 @@ elsif input_option == "2.1"
   print "Enter a coin ticker symbol: "
   input_name = gets.chomp
   response = Unirest.get("http://localhost:3000/v1/coins/#{input_name}")
+  p response.body
+elsif input_option == "3"
+  response = Unirest.get("http://localhost:3000/v1/wallets")
+  wallets = response.body
+  puts JSON.pretty_generate(wallets)
+elsif input_option == "3.1"
+  params = {}
+  print "Enter a bitcoin wallet address: "
+  input_name = gets.chomp
+  response = Unirest.get("http://localhost:3000/v1/wallets/#{input_name}")
   p response.body
 end
 
