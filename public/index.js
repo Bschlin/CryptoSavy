@@ -15,9 +15,16 @@ var HomePage = {
     };
   },
   created: function() {
+    axios.get("/v1/coins").then(
+      function(response) {
+        this.coins = response.data;
+        console.log("the coins", this.coins);
+      }.bind(this)
+    );
     axios.get("/v1/favorites").then(
       function(response) {
         this.favorites = response.data;
+        console.log(this.favorites);
       }.bind(this)
     );
   },

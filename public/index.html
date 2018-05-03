@@ -74,7 +74,14 @@
 <template id="home-page">
   <div class="vue-component container">
 
-    <h1>{{ message }}</h1>
+    <h1>{{ message }}!!!</h1>
+
+
+    <div v-for="coin in coins">
+      <p>{{ coin }}</p>
+    </div>
+
+
     <div class="row">
        <div class="col-sm-4" v-for="favorite in favorites">
     <div class="card">
