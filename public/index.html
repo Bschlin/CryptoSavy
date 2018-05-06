@@ -74,23 +74,40 @@
 <template id="home-page">
   <div class="vue-component container">
 
-    <h1>{{ message }}!!!</h1>
+    <h1>{{ message }}</h1>
 
 
-    <div v-for="coin in coins">
+    <!-- <div v-for="coin in coins">
       <p>{{ coin }}</p>
     </div>
+ -->
 
-
-    <div class="row">
+    <!-- <div class="row">
        <div class="col-sm-4" v-for="favorite in favorites">
-    <div class="card">
+    <div class="card"> -->
       <!-- <img class="card-img-top" v-bind:src="post.image" alt="Card image cap"> -->
-      <div class="card-top">{{favorite.user_id}}</div>
+    <!--   <div class="card-top">{{favorite.user_id}}</div>
       <div class="card-body">
         <h5 class="card-title">{{ favorite.coin_name }}</h5>
         <p class="card-text">{{ favorite.coin_api_id }}</p>
-         <p class="card-text">{{ favorite.notes }}</p>
+         <p class="card-text">{{ favorite.notes }}</p> -->
+        <!-- <a href="#" class="btn btn-primary">Add to cart</a> -->
+      <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
+      <!-- </div>
+    </div>
+      <br>
+    </div>
+    </div> -->
+
+     <div class="row">
+       <div class="col-sm-4" v-for="coin in coins">
+    <div class="card">
+      <!-- <img class="card-img-top" v-bind:src="post.image" alt="Card image cap"> -->
+      <div class="card-top">{{coin.id}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ coin.name }}</h5>
+        <p class="card-text">{{ coin.symbol }}</p>
+         <!-- <p class="card-text">{{ favorite.notes }}</p> -->
         <!-- <a href="#" class="btn btn-primary">Add to cart</a> -->
       <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
       </div>
