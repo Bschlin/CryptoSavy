@@ -89,6 +89,29 @@ var SignupPage = {
   }
 };
 
+var FavoritesPage = {
+  template: "#favorite-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      favorites: [],
+      currentFavorite: {
+        name: "",
+        symbol: ""
+      }
+    };
+  },
+  created: function() {
+    axios.get("/v1/favorites").then(
+      function(response) {
+        this.favorites = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {},
+  computed: {}
+};
+
 var LoginPage = {
   template: "#login-page",
   data: function() {
@@ -121,6 +144,7 @@ var LoginPage = {
     }
   }
 };
+
 var LogoutPage = {
   template: "<h1>Logout</h1>",
   created: function() {
@@ -135,7 +159,8 @@ var router = new VueRouter({
     { path: "/", component: HomePage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
-    { path: "/logout", component: LogoutPage }
+    { path: "/logout", component: LogoutPage },
+    { path: "/favorites/new", component: FavoritesPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

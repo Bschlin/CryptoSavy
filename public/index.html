@@ -44,7 +44,7 @@
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="show.html">Show a Product</a>
+          <a class="dropdown-item" href="/#/favorites/new">Show Favorites</a>
           <a class="dropdown-item" href="/#/products/new">Create a Product</a>
           <a class="dropdown-item" href="/#/posts/new">Create a Post</a>
           <div class="dropdown-divider"></div>
@@ -197,5 +197,31 @@
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
+  </div>
+</template>
+
+<template id="favorite-page">
+  <div class="vue-component container">
+
+    <h1>{{ message }}</h1>
+
+
+     <div class="row">
+       <div class="col-sm-4" v-for="favorite in favorites">
+    <div class="card">
+      <!-- <img class="card-img-top" v-bind:src="post.image" alt="Card image cap"> -->
+      <div class="card-top">{{ favorite.id }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ favorite.coin_name }}</h5>
+        <p class="card-text">{{ favorite.coin_api_id }}</p>
+         <!-- <p class="card-text">{{ favorite.notes }}</p> -->
+       <!--  <a href="#" class="btn btn-primary" v-on:click="createFavorite(coin)">Add to Favorites</a> -->
+      <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
+      </div>
+    </div>
+      <br>
+    </div>
+    </div>
+
   </div>
 </template>
