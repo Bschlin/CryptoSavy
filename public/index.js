@@ -28,7 +28,27 @@ var HomePage = {
       }.bind(this)
     );
   },
-  methods: {},
+  methods: {
+    createFavorite: function(coin) {
+      var params = {
+        coin_name: coin.name,
+        coin_api_id: coin.symbol
+      };
+      console.log("the params are", params);
+      axios
+        .post("/v1/favorites", params)
+        .then(function(response) {
+          router.push("/");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+      // axios.post to "/v1/favorites"
+      // send params {coin_name: ..., coin_api_id: ...}
+    }
+  },
   computed: {}
 };
 
@@ -124,5 +144,11 @@ var router = new VueRouter({
 
 var app = new Vue({
   el: "#vue-app",
-  router: router
+  router: router,
+  created: function() {
+    var jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      axios.defaults.headers.common["Authorization"] = jwt;
+    }
+  }
 });

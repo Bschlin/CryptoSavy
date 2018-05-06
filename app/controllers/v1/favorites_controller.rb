@@ -6,7 +6,7 @@ class V1::FavoritesController < ApplicationController
 
   def create
     favorite = Favorite.new(
-        user_id: params[:user_id],
+        user_id: current_user.id,
         coin_name: params[:coin_name],
         coin_api_id: params[:coin_api_id],
         notes: params[:notes]

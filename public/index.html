@@ -99,16 +99,17 @@
     </div>
     </div> -->
 
+
      <div class="row">
        <div class="col-sm-4" v-for="coin in coins">
     <div class="card">
       <!-- <img class="card-img-top" v-bind:src="post.image" alt="Card image cap"> -->
-      <div class="card-top">{{coin.id}}</div>
+      <div class="card-top">{{ coin.id }}</div>
       <div class="card-body">
         <h5 class="card-title">{{ coin.name }}</h5>
         <p class="card-text">{{ coin.symbol }}</p>
          <!-- <p class="card-text">{{ favorite.notes }}</p> -->
-        <!-- <a href="#" class="btn btn-primary">Add to cart</a> -->
+        <a href="#" class="btn btn-primary" v-on:click="createFavorite(coin)">Add to Favorites</a>
       <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
       </div>
     </div>
@@ -175,5 +176,26 @@
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
 
+  </div>
+</template>
+
+<template id="posts-new-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>New Post</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" class="form-control" v-model="title">
+      </div>
+      <div class="form-group">
+        <label>Body:</label>
+        <input type="text" class="form-control" v-model="body">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
   </div>
 </template>
