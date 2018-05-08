@@ -215,7 +215,7 @@
         <h5 class="card-title">{{ favorite.coin_name }}</h5>
         <p class="card-text">{{ favorite.coin_api_id }}</p>
          <!-- <p class="card-text">{{ favorite.notes }}</p> -->
-       <!--  <a href="#" class="btn btn-primary" v-on:click="createFavorite(coin)">Add to Favorites</a> -->
+       <a href="#" class="btn btn-primary" v-on:click="deleteFavorite(favorite)">Remove</a>
       <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
       </div>
     </div>

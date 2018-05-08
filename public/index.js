@@ -108,7 +108,17 @@ var FavoritesPage = {
       }.bind(this)
     );
   },
-  methods: {},
+  methods: {
+    deleteFavorite: function(favorite) {
+      var params = {
+        favorite_id: favorite.id
+      };
+      console.log("the params are", params);
+      axios.delete("/v1/favorites/" + favorite.id).then(function(response) {
+        router.push("/favorites/new");
+      });
+    }
+  },
   computed: {}
 };
 
