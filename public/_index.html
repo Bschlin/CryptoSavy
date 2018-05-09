@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="index.js" defer></script>
+
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+
+</head>
+<body>
+  <div id="vue-app">
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><span style="color: blue">Navbar</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#/signup">Signup</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/#/login">Login</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/#/logout">Logout</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/#/favorites/new">Show Favorites</a>
+          <a class="dropdown-item" href="/#/products/new">Create a Product</a>
+          <a class="dropdown-item" href="/#/posts/new">Create a Post</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="edit.html">Update an existing Product</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+    <router-view></router-view>
+
+  </div>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<template id="home-page">
+  <div class="vue-component container">
+
+    <h1>{{ message }}</h1>
+
+
+    <!-- <div v-for="coin in coins">
+      <p>{{ coin }}</p>
+    </div>
+ -->
+
+    <!-- <div class="row">
+       <div class="col-sm-4" v-for="favorite in favorites">
+    <div class="card"> -->
+      <!-- <img class="card-img-top" v-bind:src="post.image" alt="Card image cap"> -->
+    <!--   <div class="card-top">{{favorite.user_id}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ favorite.coin_name }}</h5>
+        <p class="card-text">{{ favorite.coin_api_id }}</p>
+         <p class="card-text">{{ favorite.notes }}</p> -->
+        <!-- <a href="#" class="btn btn-primary">Add to cart</a> -->
+      <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
+      <!-- </div>
+    </div>
+      <br>
+    </div>
+    </div> -->
+
+
+     <div class="row">
+       <div class="col-sm-4" v-for="coin in coins">
+    <div class="card">
+      <!-- <img class="card-img-top" v-bind:src="post.image" alt="Card image cap"> -->
+      <div class="card-top">{{ coin.id }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ coin.name }}</h5>
+        <p class="card-text">{{ coin.symbol }}</p>
+         <!-- <p class="card-text">{{ favorite.notes }}</p> -->
+        <a href="#" class="btn btn-primary" v-on:click="createFavorite(coin)">Add to Favorites</a>
+      <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
+      </div>
+    </div>
+      <br>
+    </div>
+    </div>
+
+  </div>
+</template>
+
+<template id="signup-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Signup</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>First Name:</label> 
+        <input type="text" class="form-control" v-model="first_name">
+      </div>
+      <div class="form-group">
+        <label>Last Name:</label> 
+        <input type="text" class="form-control" v-model="last_name">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input type="text" class="form-control" v-model="phone_number">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="password_confirmation">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+  </div>
+</template>
+
+<template id="login-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="posts-new-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>New Post</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" class="form-control" v-model="title">
+      </div>
+      <div class="form-group">
+        <label>Body:</label>
+        <input type="text" class="form-control" v-model="body">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+  </div>
+</template>
+
+<template id="favorite-page">
+  <div class="vue-component container">
+
+    <h1>{{ message }}</h1>
+
+
+     <div class="row">
+       <div class="col-sm-4" v-for="favorite in favorites">
+    <div class="card">
+      <!-- <img class="card-img-top" v-bind:src="post.image" alt="Card image cap"> -->
+      <div class="card-top">{{ favorite.id }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ favorite.coin_name }}</h5>
+        <p class="card-text">{{ favorite.coin_api_id }}</p>
+         <!-- <p class="card-text">{{ favorite.notes }}</p> -->
+       <a href="#" class="btn btn-primary" v-on:click="deleteFavorite(favorite)">Remove</a>
+      <!--  <a href="#" class="btn btn-primary" v-on:click="setCurrentPost(post)" data-toggle="modal" data-target="#exampleModal">Show details</a> -->
+      </div>
+    </div>
+      <br>
+    </div>
+    </div>
+
+  </div>
+</template>
