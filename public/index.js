@@ -12,6 +12,23 @@ var HomePage = {
   computed: {}
 };
 
+var CalculatorPage = {
+  template: "#calculator-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!"
+    };
+  },
+  created: function() {
+    console.log("hello from calculator");
+  },
+  mounted: function() {
+    runCalcWidget();
+  },
+  methods: {},
+  computed: {}
+};
+
 var SignupPage = {
   template: "#signup-page",
   data: function() {
@@ -83,7 +100,7 @@ var LoginPage = {
 };
 
 var LogoutPage = {
-  template: "<h1>Logout</h1>",
+  template: "#logout-page",
   created: function() {
     axios.defaults.headers.common["Authorization"] = undefined;
     localStorage.removeItem("jwt");
@@ -94,6 +111,7 @@ var LogoutPage = {
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
+    { path: "/calculator", component: CalculatorPage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage }

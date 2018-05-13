@@ -49,6 +49,7 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script type="text/javascript" src="../calc_widget.js"></script>
   <script src="../index.js" defer></script>
 
 </head>
@@ -75,7 +76,7 @@
                     <li class="message-toggle-wrapper">
                         <a href="#" data-toggle="dropdown" class="toggle">
                             <i class="fa fa-envelope"></i>
-                            <span class="badge badge-accent">7</span>
+                            <span class="badge badge-accent"></span>
                         </a>
                         <ul class="dropdown-menu messages animated fadeIn">
 
@@ -234,7 +235,7 @@
                     <li class="notify-toggle-wrapper">
                         <a href="#" data-toggle="dropdown" class="toggle">
                             <i class="fa fa-bell"></i>
-                            <span class="badge badge-accent">3</span>
+                            <span class="badge badge-accent"></span>
                         </a>
                         <ul class="dropdown-menu notifications animated fadeIn">
                             <li class="total">
@@ -333,12 +334,13 @@
                     <li class="profile">
                         <a href="#" data-toggle="dropdown" class="toggle">
                             <img src="../data/profile/profile.jpg" alt="user-image" class="img-circle img-inline">
-                            <span>Smith Wright <i class="fa fa-angle-down"></i></span>
+                            <span> <%= @current_user %> <i class="fa fa-angle-down"></i></span>
+
                         </a>
                         <ul class="dropdown-menu profile animated fadeIn">
                             <li>
-                                <a href="account-confirmation.html">
-                                    <i class="fa fa-wrench"></i> Settings
+                                <a href="#/calculator">
+                                    <i class="fa fa-wrench"></i> Converter
                                 </a>
                             </li>
                             <li>
@@ -347,12 +349,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="ui-support.html">
-                                    <i class="fa fa-info"></i> Help
+                                <a href="#/login">
+                                    <i class="fa fa-info"></i> Login
                                 </a>
                             </li>
                             <li class="last">
-                                <a href="#/login">
+                                <a href="#/logout">
                                     <i class="fa fa-lock"></i> Logout
                                 </a>
                             </li>
@@ -361,7 +363,7 @@
                     <li class="chat-toggle-wrapper">
                         <a href="#" data-toggle="chatbar" class="toggle_chat">
                             <i class="fa fa-comments"></i>
-                            <span class="badge badge-accent">9</span>
+                            <span class="badge badge-accent"></span>
                             <i class="fa fa-times"></i>
                         </a>
                     </li>
@@ -403,18 +405,18 @@
                         </a>
                     </li>
                     <li class="">
-                        <a href="/dashboard/#/">
+                        <a href="#/calculator">
                             <i class="fa fa-sitemap"></i>
-                            <span class="title">ICO Distribution Admin</span>
+                            <span class="title">Converter</span>
                         </a>
                     </li>
-                    <li class="">
+                   <!--  <li class="">
                         <a href="/dashboard/#/">
                             <i class="fa fa-user"></i>
                             <span class="title">ICO Distribution User</span>
                         </a>
-                    </li>
-                    <li class="">
+                    </li> -->
+                    <!-- <li class="">
                         <a href="/dashboard/#/">
                             <i class="img">
                                 <img src="../data/icons/coins.png" style="width:16px" alt="">
@@ -445,9 +447,9 @@
                             <i class="fa fa-lock"></i>
                             <span class="title">Security</span>
                         </a>
-                    </li>
+                    </li> -->
 
-                    <li class="">
+                    <!-- <li class="">
                         <a href="javascript:;">
                             <i class="fa fa-gear"></i>
                             <span class="title">Settings</span>
@@ -521,7 +523,7 @@
                                 <a class="" href="/dashboard/#/">Boxed Chat Open</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class='menusection'>Applications</li>
 
                     <li class="">
@@ -558,9 +560,9 @@
                         </ul>
                     </li>
 
-                    <li class='menusection'>Data Visualization</li>
-                    <li class="">
-                        <a href="javascript:;">
+                   <!--  <li class='menusection'>Data Visualization</li> -->
+                    <!-- <li class=""> -->
+                       <!--  <a href="javascript:;">
                             <i class="fa fa-bar-chart"></i>
                             <span class="title">Echarts</span>
                             <span class="arrow "></span>
@@ -593,10 +595,10 @@
                             <li>
                                 <a class="" href="/dashboard/#/">Pie Charts</a>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="">
-                        <a href="javascript:;">
+                        </ul> -->
+                  <!--   </li> -->
+                   <!--  <li class=""> -->
+                       <!--  <a href="javascript:;">
                             <i class="fa fa-line-chart"></i>
                             <span class="title">Charts JS</span>
                             <span class="arrow "></span>
@@ -644,10 +646,10 @@
                             <li>
                                 <a class="" href="/dashboard/#/">Composite Charts</a>
                             </li>
-                        </ul>
-                    </li>
+                        </ul> -->
+                  <!--   </li> -->
                     
-                    <li class='menusection'>User Interface</li>
+                   <!--  <li class='menusection'>User Interface</li>
                     <li class="">
                         <a href="javascript:;"> <i class="fa fa-folder-open"></i> <span class="title">Ui Elements</span> <span class="arrow "></span> </a>
                         <ul class="sub-menu">
@@ -790,7 +792,7 @@
                         </ul>
                     </li>
                     
-                </ul>
+                </ul> -->
 
             </div>
             <!-- MAIN MENU - END -->
@@ -819,7 +821,7 @@
                             <a href="#"><img src="../data/profile/avatar-1.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Joge Lucky</a></h4>
+                            <h4><a href="#">Blake Schlin</a></h4>
                             <span class="status available" data-status="available"> Available</span>
                         </div>
                         <div class="user-status available">
@@ -831,7 +833,7 @@
                             <a href="#"><img src="../data/profile/avatar-2.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Folisise Chosiel</a></h4>
+                            <h4><a href="#">Michelle Vazquez</a></h4>
                             <span class="status away" data-status="away"> Away</span>
                         </div>
                         <div class="user-status away">
@@ -843,7 +845,7 @@
                             <a href="#"><img src="../data/profile/avatar-3.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Aron Gonzalez</a></h4>
+                            <h4><a href="#">Derek Schlin</a></h4>
                             <span class="status busy" data-status="busy"> Busy</span>
                         </div>
                         <div class="user-status busy">
@@ -861,7 +863,7 @@
                             <a href="#"><img src="../data/profile/avatar-4.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Chris Fox</a></h4>
+                            <h4><a href="#">Bill Gates</a></h4>
                             <span class="status offline" data-status="offline"> Offline</span>
                         </div>
                         <div class="user-status offline">
@@ -873,7 +875,7 @@
                             <a href="#"><img src="../data/profile/avatar-5.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Mogen Polish</a></h4>
+                            <h4><a href="#">Steve Jobs</a></h4>
                             <span class="status offline" data-status="offline"> Offline</span>
                         </div>
                         <div class="user-status offline">
@@ -885,7 +887,7 @@
                             <a href="#"><img src="../data/profile/avatar-1.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Smith Carter</a></h4>
+                            <h4><a href="#">Shakira</a></h4>
                             <span class="status available" data-status="available"> Available</span>
                         </div>
                         <div class="user-status available">
@@ -897,7 +899,7 @@
                             <a href="#"><img src="../data/profile/avatar-2.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Amilia Gozenal</a></h4>
+                            <h4><a href="#">Drake</a></h4>
                             <span class="status busy" data-status="busy"> Busy</span>
                         </div>
                         <div class="user-status busy">
@@ -909,7 +911,7 @@
                             <a href="#"><img src="../data/profile/avatar-3.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Tahir Jemyship</a></h4>
+                            <h4><a href="#">Kanye West</a></h4>
                             <span class="status away" data-status="away"> Away</span>
                         </div>
                         <div class="user-status away">
@@ -921,7 +923,7 @@
                             <a href="#"><img src="../data/profile/avatar-4.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Johanson Wright</a></h4>
+                            <h4><a href="#">Jay Wengrow</a></h4>
                             <span class="status busy" data-status="busy"> Busy</span>
                         </div>
                         <div class="user-status busy">
@@ -933,7 +935,7 @@
                             <a href="#"><img src="../data/profile/avatar-5.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Loni Tindall</a></h4>
+                            <h4><a href="#">Cyndy Schlin</a></h4>
                             <span class="status away" data-status="away"> Away</span>
                         </div>
                         <div class="user-status away">
@@ -945,7 +947,7 @@
                             <a href="#"><img src="../data/profile/avatar-1.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Natcho Herlaey</a></h4>
+                            <h4><a href="#">Darryl Schlin</a></h4>
                             <span class="status idle" data-status="idle"> Idle</span>
                         </div>
                         <div class="user-status idle">
@@ -957,7 +959,7 @@
                             <a href="#"><img src="../data/profile/avatar-2.png" alt=""></a>
                         </div>
                         <div class="user-info">
-                            <h4><a href="#">Shakira Swedan</a></h4>
+                            <h4><a href="#">Harvey Weinstein</a></h4>
                             <span class="status idle" data-status="idle"> Idle</span>
                         </div>
                         <div class="user-status idle">
@@ -1048,7 +1050,7 @@
                     <section class="box nobox marginBottom0">
                         <div class="content-body">
                             <div class="row">
-                                <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <!-- <div class="col-lg-4 col-sm-6 col-xs-12">
                                     <div class="r4_counter db_box has-gradient-to-right-bottom">
                                         <div class="icon-after cc BTC-alt"></div>
                                         <i class='pull-left cc BTC-alt icon-md icon-white mt-10'></i>
@@ -1057,8 +1059,8 @@
                                             <span>Wallet BTC balance</span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 col-xs-12">
+                                </div> -->
+                               <!--  <div class="col-lg-4 col-sm-6 col-xs-12">
                                     <div class="r4_counter db_box">
                                         <div class="icon-after cc DASH-alt"></div>
                                         <i class='pull-left cc DASH-alt icon-md icon-primary mt-10'></i>
@@ -1078,7 +1080,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+ -->
                             </div>
                             <!-- End .row -->
                         </div>
@@ -1205,7 +1207,7 @@
                                     </div>
 
                                     <div class="pull-left">
-                                        <a class="btn btn-primary mt-10 btn-corner right-15" v-on:click="submit()">Sign up</a>
+                                        <a class="btn btn-primary mt-10 btn-corner right-15" href="/dashboard/#" v-on:click="submit()">Sign up</a>
                                         <a class="btn mt-10 btn-corner signup" href="#/login">Login</a>
                                     </div>
 
@@ -1244,32 +1246,32 @@
 
                     <div class="content-body" style="padding-top:30px">
 
-                        <form id="msg_validate" action="#" novalidate="novalidate" class="no-mb no-mt">
+                        <div id="msg_validate" action="#" novalidate="novalidate" class="no-mb no-mt">
                             <div class="row">
                                 <div class="col-xs-12">
 
                                     <div class="form-group">
                                         <label class="form-label">Email</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="formfield2" placeholder="email">
+                                            <input type="text" class="form-control" name="formfield2" placeholder="email" v-model="email">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Password</label>
                                         <div class="controls">
-                                            <input type="text" class="form-control" name="formfield1" placeholder="password">
+                                            <input type="text" class="form-control" name="formfield1" placeholder="password" v-model="password">
                                         </div>
                                     </div>
 
                                     <div class="pull-left">
-                                        <a href="/dashboard/#/" class="btn btn-primary mt-10 btn-corner right-15">Log in</a>
+                                        <a href="/dashboard/#" class="btn btn-primary mt-10 btn-corner right-15" v-on:click="submit()">Log in</a>
                                         <a href="#/signup" class="btn mt-10 btn-corner signup">Sign up</a>
                                     </div>
 
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
 
@@ -1283,4 +1285,29 @@
     </div>
 
   </div>
+</template>
+
+<template id="logout-page">
+  <div class="vue-component">
+        <div class="container">
+            <div class="row title">
+                <h2 class="h2">You have been successfully logged out!</h2>
+            </div>
+        </div>
+  </div>
+</template>
+
+<template id="calculator-page">
+    <div class="vue-component">
+
+        <!-- START CONTENT -->
+        <section id="main-content" class=" ">
+            <div class="wrapper main-wrapper row" style=''>
+                <h1>Calculator</h1>
+                <div id="calculator">Calculator goes here</div>
+
+            </div>
+        </section>
+        
+    </div>
 </template>
