@@ -20,7 +20,7 @@ function runCalcWidget() {
     typeof crypt_calc_border_width == "undefined" ? 1 : crypt_calc_border_width;
   var crypt_calc_border_color =
     typeof crypt_calc_border_color == "undefined"
-      ? "#CCCCCC"
+      ? "#ff9900"
       : crypt_calc_border_color;
   var crypt_calc_border_corners =
     typeof crypt_calc_border_corners == "undefined"

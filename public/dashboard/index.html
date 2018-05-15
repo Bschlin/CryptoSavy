@@ -334,7 +334,7 @@
                     <li class="profile">
                         <a href="#" data-toggle="dropdown" class="toggle">
                             <img src="../data/profile/profile.jpg" alt="user-image" class="img-circle img-inline">
-                            <span> <%= @current_user %> <i class="fa fa-angle-down"></i></span>
+                            <span>Welcome {{ userName }} <i class="fa fa-angle-down"></i></span>
 
                         </a>
                         <ul class="dropdown-menu profile animated fadeIn">
@@ -399,7 +399,7 @@
                         </a>
                     </li>
                     <li class="open">
-                        <a class="active" href="/dashboard">
+                        <a class="active" href="/dashboard/#/">
                             <i class="fa fa-flash"></i>
                             <span class="title">Statistics & Marketcap</span>
                         </a>
@@ -1265,7 +1265,7 @@
                                     </div>
 
                                     <div class="pull-left">
-                                        <a href="/dashboard/#" class="btn btn-primary mt-10 btn-corner right-15" v-on:click="submit()">Log in</a>
+                                        <a href="/dashboard#/" class="btn btn-primary mt-10 btn-corner right-15" v-on:click="submit()">Log in</a>
                                         <a href="#/signup" class="btn mt-10 btn-corner signup">Sign up</a>
                                     </div>
 

@@ -72,6 +72,7 @@ var LoginPage = {
     return {
       email: "",
       password: "",
+      userName: "",
       errors: []
     };
   },
@@ -82,12 +83,18 @@ var LoginPage = {
       };
       axios
         .post("/user_token", params)
-        .then(function(response) {
-          axios.defaults.headers.common["Authorization"] =
-            "Bearer " + response.data.jwt;
-          localStorage.setItem("jwt", response.data.jwt);
-          router.push("/");
-        })
+        .then(
+          function(response) {
+            axios.defaults.headers.common["Authorization"] =
+              "Bearer " + response.data.jwt;
+            console.log(response.data.user);
+            this.$root.userName = response.data.user.first_name;
+            localStorage.setItem("jwt", response.data.jwt);
+            localStorage.setItem("first_name", response.data.user.first_name);
+            router.push("/");
+            // console.log("logged in", response.data);
+          }.bind(this)
+        )
         .catch(
           function(error) {
             this.errors = ["Invalid email or password."];
@@ -104,6 +111,7 @@ var LogoutPage = {
   created: function() {
     axios.defaults.headers.common["Authorization"] = undefined;
     localStorage.removeItem("jwt");
+    localStorage.removeItem("first_name");
     router.push("/");
   }
 };
@@ -124,8 +132,14 @@ var router = new VueRouter({
 var app = new Vue({
   el: "#vue-app",
   router: router,
+  data: function() {
+    return {
+      first_name: ""
+    };
+  },
   created: function() {
     var jwt = localStorage.getItem("jwt");
+    this.first_name = localStorage.getItem("first_name");
     if (jwt) {
       axios.defaults.headers.common["Authorization"] = jwt;
     }

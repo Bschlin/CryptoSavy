@@ -14,7 +14,4 @@ class V1::UsersController < ApplicationController
     render json: {errors: user.errors.full_messages}, status: :bad_request
     end
   end
-  def current_user
-    @current_user = User.find(session[:user_id]) if session[:user_id]
-  end
 end
